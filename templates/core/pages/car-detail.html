@@ -1,0 +1,261 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% load humanize %}
+    {% block content %}
+    <section class="section">
+        <div class="container">
+
+            <!-- نان‌ریزه / مسیر صفحه -->
+            <nav class="breadcrumb">
+                <a href="/">دنیا خودرو</a>
+                <span>›</span>
+                <a href="/خرید-خودرو/">خرید خودرو</a>
+                <span>›</span>
+                <span>{{ car.title }}</span>
+
+            </nav>
+
+            <!-- هدر خودرو -->
+            <header class="car-detail-header">
+                <div>
+                    <h1 class="car-detail-title">{{ car.title }}</h1>
+                    <p class="car-detail-subtitle">
+                             کارکرد {{ car.mileage }} کیلومتر ·
+                            {{ car.get_gear_type_display }}
+                            {% if car.body_status %} · {{ car.body_status }}{% endif %}
+                    </p>
+
+                </div>
+                <div class="car-detail-price-block">
+                    <div class="price-label">قیمت نقدی</div>
+                    <div class="price-value">
+                        {% if car.price %}
+                         {{ car.price }} تومان
+                         {% else %}
+                             قیمت توافقی
+                            {% endif %}
+                    </div>
+                    <div class="price-note">امکان مذاکره پای معامله</div>
+                </div>
+            </header>
+
+
+
+
+
+
+            
+            <!-- بدنه اصلی جزئیات -->
+            <div class="car-detail-layout">
+
+                <!-- ستون چپ: گالری و توضیحات -->
+                <div class="car-detail-main">
+
+                    <figure class="car-detail-hero-image">
+                    {% if car.main_image %}
+                    <img src="{{ car.main_image.url }}" alt="{{ car.title }}">
+                    {% elif car.images.all %}
+                    {% with first_img=car.images.all.0 %}
+                    <img src="{{ first_img.image.url }}" alt="{{ first_img.alt_text|default:car.title }}">
+                    {% endwith %}
+                    {% else %}
+                    <img src="" alt="{{ car.title }}">
+                    {% endif %}
+                    </figure>
+
+                    <!-- تصاویر کوچک -->
+                    <div class="car-detail-thumbs">
+                     {# اول: اگر main_image داریم، به‌عنوان اولین thumb #}
+                        {% if car.main_image %}
+                        <button class="thumb is-active">
+                        <img src="{{ car.main_image.url }}" alt="{{ car.title }}">
+                        </button>
+                        {% endif %}
+
+                         {# بقیه عکس‌ها از CarImage #}
+                            {% for img in car.images.all %}
+                        <button class="thumb {% if not car.main_image and forloop.first %}is-active{% endif %}">
+                        <img src="{{ img.image.url }}" alt="{{ img.alt_text|default:car.title }}">
+                        </button>
+                        {% empty %}
+        {# اگر هیچ عکس اضافه‌ای نبود، می‌تونیم خالی بذاریم یا کلاً این بخش رو   حذف کنیم #}                
+                        {% endfor %}
+                    </div>
+
+                    
+                
+
+                    <!-- مشخصات فنی -->
+                    <section class="car-section">
+                         <h2 class="car-section-title">مشخصات کلی خودرو</h2>
+                            <div class="spec-grid">
+                            {% for label, value in car.get_specs %}
+                                {% if value %}
+                                    <div class="spec-item">
+                                        <span class="spec-label">{{ label }}</span>
+                                        <span class="spec-value">{{ value }}</span>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </section>
+
+
+                    <!-- توضیحات فروشنده -->
+                    <section class="car-section">
+                        <h2 class="car-section-title">توضیحات فروشنده</h2>
+                        <div class="car-detail-text">
+                            {% if car.description %}
+                                <p>{{ car.description|linebreaks }}</p>
+                            {% else %}
+                                <p>توضیحات این خودرو هنوز ثبت نشده است.</p>
+                            {% endif %}
+                        </div>
+                    </section>
+
+                
+
+                    {% if car.features.all %}
+<section class="car-section">
+    <h2 class="car-section-title">امکانات و آپشن‌ها</h2>
+    <ul class="car-features">
+        {% for feature in car.features.all %}
+            <li>{{ feature.title }}</li>
+        {% endfor %}
+    </ul>
+</section>
+{% endif %}
+
+                </div>
+
+                <!-- ستون راست: اطلاعات تماس و نمایشگاه -->
+                <aside class="car-detail-sidebar">
+                    <div class="side-card">
+                        <h2 class="side-title">اطلاعات نمایشگاه</h2>
+                        <p class="side-name">دنیا خودرو</p>
+                        <p class="side-text">اصفهان، خیابان مثال، نبش کوچه ۱۰</p>
+                        <p class="side-text">ساعت کاری: ۹ تا ۲۰ (همه روزه بجز جمعه)</p>
+                        <a href="tel:09123456789" class="btn btn-primary btn-full">
+                            تماس مستقیم با نمایشگاه
+                        </a>
+                        <button class="btn btn-secondary btn-full">
+                            ارسال پیام در واتساپ
+                        </button>
+                        <p class="side-note">
+                            لطفاً هنگام تماس، اشاره کنید که خودرو را در سایت دنیا خودرو مشاهده کرده‌اید.
+                        </p>
+                    </div>
+
+                    <div class="side-card">
+                        <h3 class="side-subtitle">وضعیت کارشناسی</h3>
+                        <ul class="side-list">
+                           <li> کارشناسی بدنه: {{ car.body_inspection_display|safe }}</li>
+                           <li>کارشناسی فنی: {{ car.technical_inspection_display|safe }}</li>
+                           <li>گزارش کتبی کارشناسی: {{ car.written_report_display|safe }}</li>
+                        </ul>
+                    </div>
+                
+
+                    <div class="side-card">
+                    <h3 class="side-subtitle">برچسب‌های این خودرو</h3>
+                         <div class="side-tags">
+                         {% for tag in car.tags.all %}
+                            <a href="{% url 'cars_by_tag' tag.slug %}" class="tag">
+                             {{ tag.title }}
+                             </a>
+                            {% empty %}
+                            <p class="side-text">برای این خودرو هنوز برچسبی ثبت نشده است.</p>
+                        {% endfor %}
+    </div>
+</div>
+
+                </aside>
+
+            </div>
+
+            <!-- خودروهای مشابه -->
+            
+
+            {% if similar_cars %}
+<section class="car-section">
+    <div class="car-section-header">
+        <h2 class="car-section-title">خودروهای مشابه</h2>
+        <a href="{% url 'cars_list' %}" class="car-section-link">مشاهده همه خودروها</a>
+    </div>
+
+    <div class="grid-cars">
+        {% for similar in similar_cars %}
+            <article class="car-card">
+                {% if similar.main_image %}
+                    <img src="{{ similar.main_image.url }}" alt="{{ similar.title }}" class="car-image">
+                {% else %}
+                    <img src="" alt="{{ similar.title }}" class="car-image">
+                {% endif %}
+                <div class="car-body">
+                    <h3 class="car-title">{{ similar.title }}</h3>
+                    <p class="car-meta">
+                        کارکرد: {{ similar.mileage|intcomma }} کیلومتر ·
+                        {{ similar.get_gear_type_display }}
+                        {% if similar.body_status %} · {{ similar.body_status }}{% endif %}
+                    </p>
+                    <p class="car-price">
+                        {% if similar.price %}
+                            {{ similar.price|intcomma }} تومان
+                        {% else %}
+                            قیمت توافقی
+                        {% endif %}
+                    </p>
+                    <div class="car-footer">
+                        <span class="car-city">{{ similar.city }}</span>
+                        <a href="{% url 'car_detail' similar.slug %}" class="btn btn-small">
+                            مشاهده جزئیات
+                        </a>
+                    </div>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+        </div>
+    </section>
+
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const mainImage = document.querySelector(".car-detail-hero-image img");
+    const thumbs = document.querySelectorAll(".car-detail-thumbs .thumb");
+
+    thumbs.forEach((thumb) => {
+        thumb.addEventListener("click", function () {
+
+            // 1. مقدار src عکس اصلی را برابر با عکس thumbnail کن
+            const newSrc = this.querySelector("img").getAttribute("src");
+            const newAlt = this.querySelector("img").getAttribute("alt");
+
+            mainImage.setAttribute("src", newSrc);
+            mainImage.setAttribute("alt", newAlt);
+
+            // 2. حذف وضعیت فعال از همه
+            thumbs.forEach(t => t.classList.remove("is-active"));
+
+            // 3. فعال کردن thumbnail کلیک‌شده
+            this.classList.add("is-active");
+        });
+    });
+
+});
+</script>
+
+    {% endblock %}
+
+   
+
+
+
+
+
+

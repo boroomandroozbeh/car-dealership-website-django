@@ -1,0 +1,130 @@
+/* لِی‌اوت کلی FAQ */
+
+.faq-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.1fr);
+    gap: 2.4rem;
+    align-items: flex-start;
+}
+
+/* ستون اصلی */
+
+.faq-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.faq-header {
+    margin-bottom: .8rem;
+}
+
+.faq-title {
+    font-size: var(--fs-h2);
+    line-height: var(--lh-heading);
+    margin-bottom: .8rem;
+}
+
+.faq-subtitle {
+    font-size: var(--fs-body-sm);
+    color: var(--muted);
+    line-height: 1.9;
+}
+
+/* هر بخش سوالات */
+
+.faq-section {
+    margin-top: 1.2rem;
+}
+
+.faq-section-title {
+    font-size: var(--fs-h4);
+    margin-bottom: .8rem;
+}
+
+/* لیست سوال‌ها */
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+/* آکاردئون سوالات */
+
+.faq-item {
+    border-radius: 1.4rem;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    background: rgba(15, 23, 42, 0.92);
+    padding: .4rem 1.2rem;
+}
+
+.faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    padding: .6rem 0;
+    font-size: var(--fs-body);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* حذف مثلث پیش‌فرض summary */
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary::after {
+    content: "▾";
+    font-size: 1.2rem;
+    margin-right: .8rem;
+    opacity: .8;
+    transition: transform .2s ease, opacity .2s ease;
+}
+
+/* وقتی باز است */
+.faq-item[open] summary::after {
+    transform: rotate(180deg);
+    opacity: 1;
+}
+
+.faq-body {
+    padding-bottom: .6rem;
+    font-size: var(--fs-body-sm);
+    color: var(--muted);
+    line-height: 1.9;
+    border-top: 1px solid rgba(148, 163, 184, 0.25);
+    padding-top: .6rem;
+}
+
+.faq-body a {
+    color: #38bdf8;
+    text-decoration: none;
+}
+
+/* ستون کناری FAQ – از side-card, side-subtitle, side-text استفاده می‌کند */
+
+.faq-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+/* ریسپانسیو */
+
+@media (max-width: 900px) {
+    .faq-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-sidebar {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .faq-title {
+        font-size: var(--fs-h3);
+    }
+}

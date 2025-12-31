@@ -1,0 +1,306 @@
+/* breadcrumb */
+
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .6rem;
+    font-size: var(--fs-body-xs);
+    color: var(--muted);
+    margin-bottom: 1.6rem;
+}
+
+.breadcrumb a {
+    color: var(--muted);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    color: var(--text);
+}
+
+/* header جزئیات خودرو */
+
+.car-detail-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 2.4rem;
+}
+
+.car-detail-title {
+    font-size: var(--fs-h2);
+    line-height: var(--lh-heading);
+    margin-bottom: .8rem;
+}
+
+.car-detail-subtitle {
+    font-size: var(--fs-body-sm);
+    color: var(--muted);
+    max-width: 60rem;
+}
+
+.car-detail-price-block {
+    padding: 1.2rem 1.6rem;
+    border-radius: 1.6rem;
+    background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), rgba(15, 23, 42, 0.95));
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    min-width: 22rem;
+}
+
+.price-label {
+    font-size: var(--fs-body-xs);
+    color: var(--muted);
+    margin-bottom: .3rem;
+}
+
+.price-value {
+    font-size: var(--fs-card-price);
+    font-weight: 600;
+    color: #f97316;
+    margin-bottom: .4rem;
+}
+
+.price-note {
+    font-size: var(--fs-body-xs);
+    color: var(--muted);
+}
+
+/* layout اصلی */
+
+.car-detail-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.2fr);
+    gap: 2.4rem;
+    align-items: flex-start;
+}
+
+/* ستون اصلی */
+
+.car-detail-main {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+
+.car-detail-hero-image {
+    margin: 0;
+    border-radius: 2rem;
+    overflow: hidden;
+    border: 1px solid rgba(15, 23, 42, 0.9);
+    box-shadow: 0 22px 45px rgba(15, 23, 42, 1);
+    background: #020617;
+}
+
+.car-detail-hero-image img {
+    width: 100%;
+    display: block;
+    max-height: 36rem;
+    object-fit: cover;
+}
+
+/* تصاویر کوچک */
+
+.car-detail-thumbs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
+}
+
+.thumb {
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    border-radius: 1.2rem;
+    padding: .2rem;
+    background: rgba(15, 23, 42, 0.9);
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.thumb img {
+    width: 8rem;
+    height: 5rem;
+    object-fit: cover;
+    border-radius: .8rem;
+    display: block;
+}
+
+.thumb:hover {
+    border-color: #38bdf8;
+}
+
+.thumb.is-active {
+    border-color: #e11d48;
+    box-shadow: 0 0 0 1px rgba(225, 29, 72, 0.7);
+}
+
+/* سکشن‌های داخل صفحه جزئیات */
+
+.car-section {
+    margin-top: 1.8rem;
+}
+
+.car-section-footer{
+    margin-top: 1.4rem;
+}
+.car-section-title {
+    font-size: var(--fs-h4);
+    margin-bottom: 1rem;
+}
+
+/* جدول مشخصات */
+
+.spec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: .8rem;
+}
+
+.spec-item {
+    padding: .8rem 1rem;
+    border-radius: 1.2rem;
+    border: 1px solid rgba(30, 64, 175, 0.35);
+    background: rgba(15, 23, 42, 0.9);
+    font-size: var(--fs-body-xs);
+}
+
+.spec-label {
+    display: block;
+    color: var(--muted);
+    margin-bottom: .2rem;
+}
+
+.spec-value {
+    font-size: var(--fs-body-sm);
+}
+
+/* متن توضیحات */
+
+.car-detail-text p {
+    margin-bottom: .8rem;
+    font-size: var(--fs-body-sm);
+    color: var(--muted);
+    line-height: 1.9;
+}
+
+/* امکانات */
+
+.car-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.car-features li {
+    font-size: var(--fs-body-sm);
+    color: var(--muted);
+    padding: .6rem 1rem;
+    border-radius: 999px;
+    margin: 0 1rem;
+    border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+/* ستون کناری */
+
+.car-detail-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+}
+
+.side-card {
+    border-radius: 1.8rem;
+    padding: 1.4rem 1.6rem;
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    background: radial-gradient(circle at top left, rgba(15, 23, 42, 1), rgba(15, 23, 42, 0.9));
+}
+
+.side-title {
+    font-size: var(--fs-h4);
+    margin-bottom: .8rem;
+}
+
+.side-subtitle {
+    font-size: var(--fs-h5);
+    margin-bottom: .6rem;
+}
+
+.side-name {
+    font-size: var(--fs-body);
+    font-weight: 600;
+    margin-bottom: .3rem;
+}
+
+.side-text {
+    font-size: var(--fs-body-sm);
+    color: var(--muted);
+    margin-bottom: .3rem;
+}
+
+.side-note {
+    margin-top: .8rem;
+    font-size: var(--fs-body-xs);
+    color: var(--muted);
+}
+
+.btn-full {
+    width: 100%;
+    margin-top: .8rem;
+}
+
+.side-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: var(--fs-body-sm);
+    color: var(--muted);
+}
+
+.side-list li {
+    margin-bottom: .3rem;
+}
+
+.side-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+}
+
+/* هدر بخش خودروهای مشابه */
+
+.car-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.4rem;
+}
+
+.car-section-link {
+    font-size: var(--fs-body-sm);
+    color: #38bdf8;
+    text-decoration: none;
+}
+
+/* ریسپانسیو */
+
+@media (max-width: 90rem) {
+    .car-detail-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .car-detail-price-block {
+        min-width: auto;
+    }
+}
+
+@media (max-width: 77rem) {
+    .car-detail-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .results-meta {
+        align-items: flex-start;
+    }
+}

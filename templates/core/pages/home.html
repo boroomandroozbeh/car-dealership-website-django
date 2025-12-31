@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container hero-inner">
+            <div class="hero-content">
+                <h1>خرید و فروش خودرو در اصفهان</h1>
+                <p>
+                    لیست به‌روز خودروهای صفر و کارکرده، با فیلتر پیشرفته بر اساس برند، مدل، سال و قیمت. نمایشگاه ماشین اصفهان، همراه شما در انتخاب مطمئن.
+                </p>
+                <form class="hero-search" method="get" action="{% url 'cars_list' %}">
+                    <input type="text"
+                           name="q"
+                           class="input"
+                           value="{{ request.GET.q }}"
+                           placeholder="جستجوی برند، مدل یا سال ساخت...">
+                    <button type="submit" class="btn btn-primary">جستجو</button>
+                </form>
+                <div class="hero-tags">
+                    {% for tag in popular_car_tags %}
+                        <a href="{% url 'cars_by_tag' tag.slug %}" class="tag">{{ tag.title }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="hero-side">
+                <div class="hero-card">
+                    <h2>نمایشگاه ماشین اصفهان</h2>
+                    <p>آدرس: اصفهان، خیابان مثال، نبش کوچه ۱۰</p>
+                    <p>تلفن: ۰۹۱۲۳۴۵۶۷۸۹</p>
+                    <a href="tel:09123456789" class="btn btn-secondary btn-full">تماس فوری</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Filters + Cars -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>خودروهای موجود</h2>
+                <p>فیلتر و جستجو بین آگهی‌های به‌روز نمایشگاه</p>
+            </div>
+            <div class="filters">
+                <select class="input">
+                    <option>برند</option>
+                    <option>پژو</option>
+                    <option>پراید</option>
+                    <option>سمند</option>
+                </select>
+                <select class="input">
+                    <option>مدل</option>
+                </select>
+                <select class="input">
+                    <option>سال</option>
+                </select>
+                <select class="input">
+                    <option>حداکثر قیمت</option>
+                </select>
+                <button class="btn btn-secondary">اعمال فیلتر</button>
+            </div>
+            <div class="grid-cars">
+                <!-- کارت نمونه خودرو - بعداً با حلقه جنگو تکرارش می‌کنی -->
+                {% for car in cars %}
+                    <article class="car-card">
+                        {% if car.main_image %}
+                            <img src="{{ car.main_image.url }}"
+                                 alt="{{ car.title }}"
+                                 class="car-image">
+                        {% else %}
+                            <img src="" alt="{{ car.title }}" class="car-image">
+                        {% endif %}
+                        <div class="car-body">
+                            <h3 class="car-title">{{ car.title }}</h3>
+                            <p class="car-meta">
+                                کارکرد: {{ car.mileage|intcomma }} کیلومتر ·
+                                {{ car.get_gear_type_display }}
+                                {% if car.body_status %}· {{ car.body_status }}{% endif %}
+                            </p>
+                            <p class="car-price">
+                                {% if car.price %}
+                                    {{ car.price|intcomma }} تومان
+                                {% else %}
+                                    قیمت توافقی
+                                {% endif %}
+                            </p>
+                            <div class="car-footer">
+                                <span class="car-city">{{ car.city }}</span>
+                                <a href="{% url 'car_detail' car.slug %}" class="btn btn-small">مشاهده جزئیات</a>
+                            </div>
+                        </div>
+                    </article>
+                {% endfor %}
+                <!-- ... کارت‌های بیشتر -->
+            </div>
+        </div>
+    </section>
+    <!-- About / SEO content -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2>چرا نمایشگاه ماشین اصفهان؟</h2>
+            </div>
+            <div class="text-block">
+                <p>
+                    نمایشگاه ماشین اصفهان با ارائه آگهی‌های واقعی و به‌روز، همراه با مشاوره تخصصی خرید خودرو، سعی دارد
+                    بهترین تجربه خرید و فروش خودرو را برای شهروندان اصفهانی فراهم کند. شما می‌توانید بر اساس بودجه، برند،
+                    کارکرد و سال ساخت، خودروی مناسب خود را پیدا کنید.
+                </p>
+                <p>
+                    تمامی خودروها قبل از ثبت آگهی بررسی شده و اطلاعات بدنه، فنی و مدارک به صورت شفاف در سایت درج می‌گردد.
+                    هدف ما ایجاد فضایی امن و مطمئن برای معامله خودرو در اصفهان است.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Articles -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>مقالات و راهنمای خرید</h2>
+            </div>
+            <div class="grid-articles">
+                <article class="article-card">
+                    <h3>راهنمای خرید ماشین کارکرده در اصفهان</h3>
+                    <p>نکاتی که قبل از خرید ماشین دست دوم در اصفهان باید بدانید؛ از بررسی بدنه تا مدارک و تست فنی...</p>
+                    <a href="#" class="article-link">ادامه مطلب</a>
+                </article>
+                <article class="article-card">
+                    <h3>نمایشگاه خودرو اصفهان ۱۴۰۴</h3>
+                    <p>گزارش ویژه از نمایشگاه خودرو اصفهان ۱۴۰۴، برندهای حاضر، خودروهای خاص و نکات مهم برای بازدیدکنندگان...</p>
+                    <a href="#" class="article-link">ادامه مطلب</a>
+                </article>
+            </div>
+        </div>
+    </section>
+{% endblock %}

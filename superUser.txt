@@ -1,0 +1,4 @@
+roozbeh
+12345678
+
+<img src="{% static 'img/CarImage.webp' %}" alt="{{ car.title }}" class="car-image">

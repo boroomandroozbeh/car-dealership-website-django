@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+    <section class="section">
+        <div class="container">
+            <!-- هدر صفحه مقالات -->
+            <header class="page-header">
+                <div class="page-header-main">
+                    {% if current_tag %}
+                        <h1 class="page-header-title">مقالات با برچسب «{{ current_tag.title }}»</h1>
+                        <p class="page-header-subtitle">نمایش مقالات مربوط به «{{ current_tag.title }}» در دنیا خودرو.</p>
+                    {% else %}
+                        <h1 class="page-header-title">اخبار و مقالات خودرو</h1>
+                        <p class="page-header-subtitle">جدیدترین خبرها، تحلیل‌ها و راهنمای خرید خودرو برای فارسی‌زبانان.</p>
+                    {% endif %}
+                </div>
+            </header>
+            <!-- فیلتر دسته‌بندی‌ها -->
+            <div class="articles-filters">
+                {# همه مطالب #}
+                <a href="{% url 'articles_list' %}"
+                   class="articles-tag {% if not current_tag %}is-active{% endif %}">همه مطالب</a>
+                {# تگ‌ها #}
+                {% for tag in tags %}
+                    <a href="{% url 'articles_by_tag' tag.slug %}"
+                       class="articles-tag {% if current_tag and current_tag.id == tag.id %}is-active{% endif %}">
+                        {{ tag.title }}
+                    </a>
+                {% endfor %}
+            </div>
+            <!-- گرید مقالات (از grid-articles و article-card قبلی استفاده می‌کنیم) -->
+            <div class="grid-articles">
+                {% for article in articles %}
+                    <article class="article-card">
+                        <h2>
+                            <a href="{% url 'article_detail' article.slug %}">{{ article.title }}</a>
+                        </h2>
+                        <div class="article-meta">
+                            {% if article.category %}<span>دسته: {{ article.category.title }}</span>{% endif %}
+                            {% if article.published_at %}
+                                <span>تاریخ انتشار: {{ article.published_at|date:"Y/m/d H:i" }}</span>
+                            {% else %}
+                                <span>تاریخ ایجاد: {{ article.created_at|date:"Y/m/d" }}</span>
+                            {% endif %}
+                            {% if article.reading_time %}<span>· زمان مطالعه: {{ article.reading_time }} دقیقه</span>{% endif %}
+                        </div>
+                        <p>
+                            {% if article.summary %}
+                                {{ article.summary|truncatechars:140 }}
+                            {% else %}
+                                بدون خلاصه.
+                            {% endif %}
+                        </p>
+                        <a href="{% url 'article_detail' article.slug %}" class="article-link">ادامه مطلب</a>
+                    </article>
+                {% endfor %}
+            </div>
+            <!-- صفحه‌بندی -->
+            <nav class="pagination articles-pagination">
+                {# دکمه بعدی #}
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}" class="page-link">بعدی</a>
+                {% else %}
+                    <span class="page-link is-disabled">بعدی</span>
+                {% endif %}
+                {# شماره صفحات با … #}
+                <div class="page-numbers">
+                    {% for num in page_range %}
+                        {% if num == page_obj.paginator.ELLIPSIS %}
+                            <span class="page-ellipsis">…</span>
+                        {% elif num == page_obj.number %}
+                            <span class="page-number is-active">{{ num }}</span>
+                        {% else %}
+                            <a href="?page={{ num }}" class="page-number">{{ num }}</a>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                {# دکمه قبلی #}
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}" class="page-link">قبلی</a>
+                {% else %}
+                    <span class="page-link is-disabled">قبلی</span>
+                {% endif %}
+            </nav>
+        </div>
+    </section>
+{% endblock %}

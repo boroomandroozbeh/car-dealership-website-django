@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+{% block content %}
+    <section class="section">
+        <div class="container faq-layout">
+
+            <!-- ستون اصلی: سوالات -->
+            <div class="faq-main">
+
+                <!-- نان‌ریزه -->
+                <nav class="breadcrumb">
+                    <a href="{% url 'home' %}">دنیا خودرو</a>
+                    <span>›</span>
+                    <span>سوالات متداول</span>
+                </nav>
+
+                <!-- هدر صفحه -->
+                <header class="faq-header">
+                    <h1 class="faq-title">سوالات متداول درباره خرید و فروش خودرو در دنیا خودرو</h1>
+                    <p class="faq-subtitle">
+                        در این صفحه به رایج‌ترین سوالات شما درباره روند خرید و فروش خودرو، مدارک لازم، کارشناسی، پرداخت و
+                        سایر موارد مربوط به نمایشگاه دنیا خودرو پاسخ داده‌ایم.
+                    </p>
+                </header>
+
+                <!-- گروه: خرید خودرو -->
+                <section class="faq-section">
+                    <h2 class="faq-section-title">سوالات مربوط به خرید خودرو</h2>
+
+                    <div class="faq-list">
+                        <details class="faq-item" open>
+                            <summary>چطور می‌توانم خودروهای موجود در دنیا خودرو را ببینم؟</summary>
+                            <div class="faq-body">
+                                <p>
+                                    لیست به‌روز خودروهای موجود در بخش
+                                    <a href="/خرید-خودرو/">خرید خودرو</a>
+                                    سایت قرار داده شده است. همچنین می‌توانید با تماس تلفنی، از آخرین موجودی‌ها مطلع شوید.
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>آیا امکان بازدید حضوری از خودروها وجود دارد؟</summary>
+                            <div class="faq-body">
+                                <p>
+                                    بله، شما می‌توانید در ساعات کاری نمایشگاه، با هماهنگی قبلی، برای بازدید حضوری از
+                                    خودروهای مورد نظر خود اقدام کنید.
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>آیا قیمت‌های درج شده در سایت قطعی هستند؟</summary>
+                            <div class="faq-body">
+                                <p>
+                                    قیمت‌ها بر اساس شرایط روز بازار تنظیم می‌شوند، اما در بسیاری از موارد امکان مذاکره
+                                    منطقی وجود دارد. برای اطلاع از آخرین قیمت، بهتر است قبل از مراجعه، تماس بگیرید.
+                                </p>
+                            </div>
+                        </details>
+                    </div>
+                </section>
+
+                <!-- گروه: فروش خودرو -->
+                <section class="faq-section">
+                    <h2 class="faq-section-title">سوالات مربوط به فروش خودرو</h2>
+
+                    <div class="faq-list">
+                        <details class="faq-item">
+                            <summary>اگر بخواهم خودرو خود را بفروشم، باید چه کار کنم؟</summary>
+                            <div class="faq-body">
+                                <p>
+                                    می‌توانید از طریق تماس تلفنی، واتساپ یا صفحه
+                                    <a href="/تماس/">تماس با ما</a>
+                                    مشخصات خودرو (مدل، سال، کارکرد، وضعیت بدنه و قیمت مد نظر) را ارسال کنید تا پس از بررسی، با شما تماس بگیریم.
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>نمایشگاه دنیا خودرو خودرو را نقداً می‌خرد یا فقط واسطه است؟</summary>
+                            <div class="faq-body">
+                                <p>
+                                    بسته به شرایط خودرو و توافق، هم امکان خرید نقدی توسط نمایشگاه وجود دارد و هم معرفی
+                                    خودرو به خریداران بالقوه. جزئیات در زمان تماس و بررسی خودرو مشخص خواهد شد.
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>برای فروش خودرو چه مدارکی لازم است؟</summary>
+                            <div class="faq-body">
+                                <p>
+                                    به‌طور معمول، سند، کارت خودرو، برگ سبز، بیمه‌نامه، برگه معاینه فنی (در صورت لزوم) و
+                                    مدارک هویتی مالک لازم است. در صورت وجود هرگونه وام یا توقیف، باید از قبل اطلاع داده شود.
+                                </p>
+                            </div>
+                        </details>
+                    </div>
+                </section>
+
+                <!-- گروه: کارشناسی و مدارک -->
+                <section class="faq-section">
+                    <h2 class="faq-section-title">کارشناسی، مدارک و روند معامله</h2>
+
+                    <div class="faq-list">
+                        <details class="faq-item">
+                            <summary>آیا قبل از خرید، کارشناسی بدنه و فنی انجام می‌شود؟</summary>
+                            <div class="faq-body">
+                                <p>
+                                    بله، در صورت درخواست خریدار، امکان کارشناسی بدنه و فنی وجود دارد. می‌توانید از کارشناس
+                                    مورد اعتماد خود استفاده کنید یا در صورت تمایل، کارشناسان مورد تایید نمایشگاه به شما معرفی می‌شوند.
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>کارمزد یا حق‌الزحمه نمایشگاه چگونه محاسبه می‌شود؟</summary>
+                            <div class="faq-body">
+                                <p>
+                                    حق‌الزحمه (کمیسیون) نمایشگاه بر اساس عرف بازار و توافق طرفین تعیین می‌شود و قبل از
+                                    نهایی شدن معامله به‌طور شفاف اعلام خواهد شد.
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>مراحل کلی معامله در نمایشگاه دنیا خودرو چگونه است؟</summary>
+                            <div class="faq-body">
+                                <p>
+                                    معمولاً پس از توافق اولیه، خودرو بازدید و در صورت لزوم کارشناسی می‌شود. سپس قولنامه
+                                    تنظیم شده، شرایط پرداخت و زمان انتقال سند مشخص می‌گردد و در نهایت مراحل تعویض پلاک و
+                                    انتقال سند انجام می‌شود.
+                                </p>
+                            </div>
+                        </details>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- ستون کناری: کمک بیشتر -->
+            <aside class="faq-sidebar">
+                <div class="side-card">
+                    <h3 class="side-subtitle">پاسخ سوال خود را پیدا نکردید؟</h3>
+                    <p class="side-text">
+                        اگر سوالی دارید که در این صفحه پاسخ داده نشده، می‌توانید از طریق صفحه تماس با ما، سوال خود را
+                        بپرسید تا راهنمایی‌تان کنیم.
+                    </p>
+                    <a href="{% url 'contact' %}" class="btn btn-primary btn-full">
+                        پرسیدن سوال
+                    </a>
+                </div>
+
+                <div class="side-card">
+                    <h3 class="side-subtitle">لینک‌های پرکاربرد</h3>
+                    <ul class="side-list">
+                        <li><a href="{% url 'cars_list' %}" class="article-side-link">مشاهده خودروهای موجود</a></li>
+                        <li><a href="{% url 'exhibition_esfahan' %}" class="article-side-link">نمایشگاه ماشین اصفهان</a></li>
+                        <li><a href="{% url 'articles_list' %}" class="article-side-link">آخرین مقالات و اخبار</a></li>
+                    </ul>
+                </div>
+
+                <div class="side-card">
+                    <h3 class="side-subtitle">ساعات کاری نمایشگاه</h3>
+                    <p class="side-text">همه‌روزه به جز جمعه، از ساعت ۹ صبح تا ۲۰.</p>
+                    <p class="side-text">قبل از مراجعه حضوری، بهتر است تماس بگیرید.</p>
+                </div>
+            </aside>
+
+        </div>
+    </section>
+{% endblock %}

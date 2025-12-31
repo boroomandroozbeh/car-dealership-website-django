@@ -1,0 +1,44 @@
+<header class="header">
+    <div class="container header-inner">
+        <div class="logo">
+            <span class="logo-mark">DK</span>
+            <span class="logo-text">دنیا خودرو</span>
+        </div>
+        <nav class="nav">
+             <a href="{% url 'home' %}"
+               class="nav-link {% if request.resolver_match.url_name == 'home' %}is-active{% endif %}">
+                صفحه اصلی
+            </a>
+
+             <a href="{% url 'cars_list' %}"
+               class="nav-link {% if request.resolver_match.url_name == 'cars_list' %}is-active{% endif %}">
+                خرید خودرو
+            </a>
+
+            <a href="{% url 'exhibition_esfahan' %}"
+               class="nav-link {% if request.resolver_match.url_name == 'exhibition_esfahan' %}is-active{% endif %}">
+                نمایشگاه ماشین اصفهان
+            </a>
+
+            <a href="{% url 'articles_list' %}"
+               class="nav-link {% if request.resolver_match.url_name == 'articles_list' %}is-active{% endif %}">
+                اخبار و مقالات
+            </a>
+
+            <a href="{% url 'about-us' %}"
+               class="nav-link {% if request.resolver_match.url_name == 'about-us' %}is-active{% endif %}">
+                درباره ما
+            </a>
+
+            <a href="{% url 'faq' %}"
+               class="nav-link {% if request.resolver_match.url_name == 'faq' %}is-active{% endif %}">
+                سوالات متداول
+            </a>
+
+            <a href="{% url 'contact' %}"
+               class="nav-link nav-cta {% if request.resolver_match.url_name == 'contact' %}is-active{% endif %}">
+                تماس با ما
+            </a>
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,67 @@
+body.page {
+    margin: 0;
+    font-family: var(--font);
+    background: radial-gradient(circle at top, #0f172a, #020617 60%);
+    color: var(--text);
+    font-size: var(--fs-body);      /* 1.6rem */
+    line-height: var(--lh-body);    /* 1.6 */
+}
+
+/* Heading ها */
+
+h1 {
+    font-size: var(--fs-h1);
+    line-height: var(--lh-heading);
+}
+
+h2 {
+    font-size: var(--fs-h2);
+    line-height: var(--lh-heading);
+}
+
+h3 {
+    font-size: var(--fs-h3);
+    line-height: var(--lh-heading);
+}
+
+h4 {
+    font-size: var(--fs-h4);
+    line-height: var(--lh-heading);
+}
+
+h5 {
+    font-size: var(--fs-h5);
+    line-height: var(--lh-heading);
+}
+
+h6 {
+    font-size: var(--fs-h6);
+    line-height: var(--lh-heading);
+}
+
+/* Layout helpers */
+
+.container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.section {
+    padding: 5.6rem 0;
+}
+
+.section-alt {
+    background: radial-gradient(circle at bottom, #020617, #020617 48%, #111827 100%);
+}
+
+.section-header h2 {
+    margin: 0 0 8px;
+    font-size: var(--fs-section-title);
+}
+
+.section-header p {
+    margin: 0;
+    color: var(--muted);
+}

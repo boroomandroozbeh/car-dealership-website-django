@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% block content %}
+    <section class="section">
+        <div class="container contact-layout">
+            <!-- ستون راست: متن و اطلاعات کلی -->
+            <div class="contact-intro">
+                <h1 class="contact-title">تماس با دنیا خودرو</h1>
+                <p class="contact-subtitle">
+                    اگر قصد خرید یا فروش خودرو دارید، یا سوالی درباره موجودی، قیمت‌ها و نحوه همکاری دارید، می‌توانید
+                    از طریق فرم زیر، تماس تلفنی یا پیام در واتساپ با ما در ارتباط باشید.
+                </p>
+                <div class="contact-info-cards">
+                    <div class="contact-info-card">
+                        <h2>اطلاعات تماس</h2>
+                        <p>
+                            <strong>تلفن نمایشگاه:</strong> ۰۹۱۲۳۴۵۶۷۸۹
+                        </p>
+                        <p>
+                            <strong>تلفن ثابت:</strong> ۰۳۱-۱۲۳۴۵۶۷
+                        </p>
+                        <p>
+                            <strong>واتساپ:</strong> ۰۹۱۲۳۴۵۶۷۸۹
+                        </p>
+                        <p>
+                            <strong>ایمیل:</strong> info@donyakhodro.ir
+                        </p>
+                    </div>
+                    <div class="contact-info-card">
+                        <h2>نشانی و ساعات کاری</h2>
+                        <p>
+                            <strong>آدرس:</strong> اصفهان، خیابان مثال، نبش کوچه ۱۰، نمایشگاه دنیا خودرو
+                        </p>
+                        <p>
+                            <strong>ساعات کاری:</strong> همه‌روزه به جز جمعه، ۹ صبح تا ۲۰
+                        </p>
+                        <p>
+                            <strong>بازدید حضوری:</strong> با هماهنگی تلفنی، امکان بازدید خودروهای موجود فراهم است.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- ستون چپ: فرم تماس -->
+            <div class="contact-form-wrapper">
+                <div class="side-card contact-form-card">
+                    <h2 class="side-title">فرم ارسال پیام</h2>
+                    <p class="side-text">لطفاً اطلاعات خود را وارد کنید تا در اولین فرصت با شما تماس بگیریم.</p>
+                    <!-- <form class="contact-form" method="post">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
+                                {{ form.name }}
+                            </div>
+                            <div class="form-group">
+                                <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }}</label>
+                                {{ form.phone }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="{{ form.subject.id_for_label }}">{{ form.subject.label }}</label>
+                                {{ form.subject }}
+                            </div>
+                            <div class="form-group">
+                                <label for="{{ form.city.id_for_label }}">{{ form.city.label }}</label>
+                                {{ form.city }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.message.id_for_label }}">{{ form.message.label }}</label>
+                            {{ form.message }}
+                        </div>
+                        <div class="form-footer">
+                            <label class="checkbox-label">
+                                {{ form.notify_me }}
+                                <span>{{ form.notify_me.label }}</span>
+                            </label>
+                            <button type="submit" class="btn btn-primary btn-full">ارسال پیام</button>
+                        </div>
+</form> -->
+                    <form class="contact-form" method="post">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
+                                {{ form.name }}
+                            </div>
+                            <div class="form-group">
+                                <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }}</label>
+                                {{ form.phone }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="{{ form.subject.id_for_label }}">{{ form.subject.label }}</label>
+                                {{ form.subject }}
+                            </div>
+                            <div class="form-group">
+                                <label for="{{ form.city.id_for_label }}">{{ form.city.label }}</label>
+                                {{ form.city }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="{{ form.message.id_for_label }}">{{ form.message.label }}</label>
+                            {{ form.message }}
+                        </div>
+                        <div class="form-footer">
+                            <label class="checkbox-label">
+                                {{ form.notify_me }}
+                                <span>{{ form.notify_me.label }}</span>
+                            </label>
+                            <button type="submit" class="btn btn-primary btn-full">ارسال پیام</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- نقشه یا جای نگهدار نقشه -->
+                <div class="contact-map-placeholder">
+                    <div class="contact-map-box">
+                        <p class="contact-map-title">موقعیت نمایشگاه دنیا خودرو</p>
+                        <p class="contact-map-text">
+                            در نسخه نهایی، نقشه گوگل اینجا قرار می‌گیرد. فعلاً می‌توانید آدرس را در نقشه جستجو کنید:
+                            «نمایشگاه دنیا خودرو، اصفهان».
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

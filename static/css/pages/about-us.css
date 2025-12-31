@@ -1,0 +1,205 @@
+/* بخش hero درباره ما */
+
+.about-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+    gap: 2.8rem;
+    align-items: center;
+}
+
+.about-hero-text {
+    max-width: 60rem;
+}
+
+.about-title {
+    font-size: var(--fs-h1);
+    line-height: var(--lh-heading);
+    margin-bottom: 1rem;
+}
+
+.about-subtitle {
+    font-size: var(--fs-body-sm);
+    color: var(--muted);
+    margin-bottom: 1.8rem;
+    line-height: 1.9;
+}
+
+.about-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+}
+
+.about-highlight {
+    padding: 1rem 1.4rem;
+    border-radius: 1.6rem;
+    border: 1px solid rgba(148, 163, 184, 0.28);
+    background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.06), rgba(15, 23, 42, 0.96));
+    min-width: 11rem;
+}
+
+.about-highlight-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.about-highlight-label {
+    font-size: var(--fs-body-xs);
+    color: var(--muted);
+}
+
+/* کارت کناری hero */
+
+.about-hero-card {
+    border-radius: 2rem;
+    padding: 1.8rem 1.8rem 1.4rem;
+    border: 1px solid rgba(148, 163, 184, 0.28);
+    background: radial-gradient(circle at top, #0b1220, #020617 70%);
+    box-shadow: var(--shadow-soft);
+}
+
+.about-hero-card-title {
+    font-size: var(--fs-h4);
+    margin-bottom: 1rem;
+}
+
+.about-hero-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.2rem;
+    font-size: var(--fs-body-sm);
+    color: var(--muted);
+}
+
+.about-hero-list li {
+    margin-bottom: .4rem;
+}
+
+/* بخش ماموریت و ارزش‌ها */
+
+.about-section-header {
+    max-width: 60rem;
+    margin-bottom: 1.8rem;
+}
+
+.about-section-subtitle {
+    font-size: var(--fs-body-sm);
+    color: var(--muted);
+}
+
+.about-values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.6rem;
+}
+
+.about-value-card {
+    border-radius: 1.8rem;
+    padding: 1.4rem 1.6rem;
+    border: 1px solid rgba(148, 163, 184, 0.28);
+    background: rgba(15, 23, 42, 0.9);
+}
+
+.about-value-card h3 {
+    font-size: var(--fs-h5);
+    margin-bottom: .6rem;
+}
+
+.about-value-card p {
+    font-size: var(--fs-body-sm);
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+/* تاریخچه و روند کار */
+
+.about-history-side {
+    display: grid;
+    row-gap: 1rem;
+}
+
+.about-history-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.3fr);
+    gap: 2.4rem;
+    align-items: flex-start;
+}
+
+.about-history-text p {
+    font-size: var(--fs-body-sm);
+    color: var(--muted);
+    margin-bottom: 1rem;
+    line-height: 1.9;
+}
+
+.about-steps {
+    margin: 0;
+    padding-right: 1.6rem;
+    font-size: var(--fs-body-sm);
+    color: var(--muted);
+}
+
+.about-steps li {
+    margin-bottom: .6rem;
+    line-height: 1.8;
+}
+
+.about-steps strong {
+    color: var(--text);
+}
+
+/* ستون کناری تاریخچه از side-card استفاده می‌کند که قبلاً تعریف شد */
+
+/* سوالات متداول کوتاه */
+
+.about-faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.6rem;
+}
+
+.about-faq-item {
+    border-radius: 1.6rem;
+    padding: 1.4rem 1.6rem;
+    border: 1px solid rgba(148, 163, 184, 0.28);
+    background: rgba(15, 23, 42, 0.9);
+}
+
+.about-faq-item h3 {
+    font-size: var(--fs-h5);
+    margin-bottom: .6rem;
+}
+
+.about-faq-item p {
+    font-size: var(--fs-body-sm);
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+/* ریسپانسیو */
+
+@media (max-width: 90rem) {
+    .about-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .about-hero-card {
+        max-width: 38rem;
+        margin: 0 auto;
+    }
+
+    .about-history-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 77rem) {
+    .about-highlights {
+        gap: .8rem;
+    }
+
+    .about-title {
+        font-size: var(--fs-h2);
+    }
+}

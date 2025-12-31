@@ -1,0 +1,21 @@
+@import url("./core/reset.css");
+@import url("./core/variables.css");
+@import url("./core/base.css");
+
+@import url("./layout/header.css");
+@import url("./layout/footer.css");
+
+@import url("./components/hero.css");
+@import url("./components/buttons.css");
+@import url("./components/forms.css");
+@import url("./components/cards.css");
+
+@import url("./pages/cars-list.css");
+@import url("./pages/car-detail.css");
+@import url("./pages/about-us.css");
+@import url("./pages/contact-us.css");
+@import url("./pages/articles.css");
+@import url("./pages/exhibition-esfahan.css");
+@import url("./pages/article-detail.css");
+@import url("./pages/faq.css");
+@import url("./pages/contact-success.css");

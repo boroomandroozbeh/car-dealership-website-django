@@ -1,0 +1,133 @@
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(12px);
+    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.88));
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+    padding: 0 .5rem ;
+}
+
+.header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.4rem;
+    height: 3.4rem;
+    border-radius: 12px;
+    background: radial-gradient(circle at 30% 0, #f97316, #e11d48);
+    font-weight: 700;
+    font-size: var(--fs-nav);
+}
+
+.logo-text {
+    font-weight: 600;
+    font-size: var(--fs-logo-text);
+}
+
+.nav {
+    display: flex;
+    gap: 1.4rem;
+    align-items: center;
+}
+
+.nav-link {
+    font-size: var(--fs-nav);
+    color: var(--muted);
+    text-decoration: none;
+    padding: .6rem 1rem;
+    border-radius: 999px;
+    transition: 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--text);
+    background: rgba(148, 163, 184, 0.1);
+}
+
+.nav-link.is-active {
+    color: #f9fafb;
+    background: rgba(15, 23, 42, 0.5);
+    border: 1px solid rgba(148, 163, 184, 0.4);
+}
+
+.nav-cta {
+    background: #e11d48;
+    color: #f9fafb;
+    border-radius: 999px;
+    padding: .6rem 1.4rem;
+}
+
+
+
+
+
+
+
+/* Header responsive */
+
+@media (max-width: 77rem) {
+    .header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .8rem;
+        padding: .8rem 0;
+    }
+
+    .logo-mark {
+        width: 3rem;
+        height: 3rem;
+        font-size: var(--fs-body-sm);
+    }
+
+    .logo-text {
+        font-size: var(--fs-body);
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        gap: .6rem .8rem;
+    }
+
+    .nav-link {
+        padding: .4rem .8rem;
+    }
+}
+
+@media (max-width: 65rem){
+    .hero .container {
+       grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 48rem) {
+    .header-inner {
+        align-items: stretch;
+    }
+
+    .nav {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .nav-link {
+        font-size: var(--fs-body-sm);
+    }
+
+    .nav-cta {
+        margin-right: auto;
+    }
+}

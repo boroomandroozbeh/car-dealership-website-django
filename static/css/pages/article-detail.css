@@ -1,0 +1,163 @@
+/* لِی‌اوت کلی صفحه مقاله */
+
+.article-layout {
+    display: grid;
+    /* grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.1fr); */
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+    align-items: flex-start;
+}
+
+/* ستون اصلی */
+
+.article-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+/* هدر مقاله */
+
+.article-header {
+    margin-bottom: .4rem;
+}
+
+.article-title {
+    font-size: var(--fs-h2);
+    line-height: var(--lh-heading);
+    margin-bottom: .6rem;
+}
+
+.article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
+    font-size: var(--fs-body-xs);
+    color: var(--muted);
+}
+
+/* تصویر شاخص */
+
+.article-hero-image {
+    margin: 0;
+    border-radius: 1.8rem;
+    overflow: hidden;
+    border: 1px solid rgba(15, 23, 42, 0.9);
+    background: #020617;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 1);
+}
+
+.article-hero-image img {
+    width: 100%;
+    display: block;
+    max-height: 340px;
+    object-fit: cover;
+}
+
+.article-hero-image figcaption {
+    padding: .8rem 1.2rem;
+    font-size: var(--fs-body-xs);
+    color: var(--muted);
+}
+
+/* متن مقاله */
+
+.article-body {
+    font-size: var(--fs-body-sm);
+    color: var(--muted);
+    line-height: 1.9;
+}
+
+.article-body p {
+    margin-bottom: 1rem;
+}
+
+.article-body h2 {
+    font-size: var(--fs-h4);
+    margin: 1.4rem 0 .6rem;
+    color: var(--text);
+}
+
+.article-body h3 {
+    font-size: var(--fs-h5);
+    margin: 1.2rem 0 .4rem;
+    color: var(--text);
+}
+
+.article-body ul,
+.article-body ol {
+    margin: 0 0 1rem;
+    padding-right: 1.4rem;
+}
+
+.article-body li {
+    margin-bottom: .4rem;
+}
+
+/* باکس برجسته داخل مقاله */
+
+.article-highlight-box {
+    margin: 1.4rem 0;
+    padding: 1rem 1.4rem;
+    border-radius: 1.4rem;
+    border: 1px solid rgba(148, 163, 184, 0.4);
+    background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.08), rgba(15, 23, 42, 0.95));
+    font-size: var(--fs-body-sm);
+}
+
+.article-highlight-box a {
+    color: #38bdf8;
+    text-decoration: none;
+}
+
+/* برچسب‌ها */
+
+.article-tags {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
+    align-items: center;
+    font-size: var(--fs-body-xs);
+    color: var(--muted);
+}
+
+.article-tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+}
+
+/* ستون کناری مقاله (از side-card استفاده می‌کند) */
+
+.article-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+.article-side-link {
+    font-size: var(--fs-body-sm);
+    color: #38bdf8;
+    text-decoration: none;
+}
+
+.article-side-link:hover {
+    text-decoration: underline;
+}
+
+/* بخش مقالات مشابه از قبل grid-articles + article-card را استفاده می‌کند */
+
+/* ریسپانسیو */
+
+@media (max-width: 90rem) {
+    .article-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 77rem) {
+    .article-title {
+        font-size: var(--fs-h3);
+    }
+}

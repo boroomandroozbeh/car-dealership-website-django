@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% block content %}
+    <section class="section">
+        <div class="container article-layout">
+            <!-- نان‌ریزه -->
+            <nav class="breadcrumb">
+                <a href="{% url 'home' %}">دنیا خودرو</a>
+                <span>›</span>
+                <a href="{% url 'articles_list' %}">اخبار و مقالات</a>
+                <span>›</span>
+                <span>{{ article.title }}</span>
+            </nav>
+            <!-- ستون اصلی مقاله -->
+            <article class="article-main">
+                <!-- هدر مقاله -->
+                <header class="article-header">
+                    <h1 class="article-title">{{ article.title }}</h1>
+                    <div class="article-meta">
+                        <span>
+                            دسته:
+                            {% if article.category %}
+                                {{ article.category.title }}
+                            {% else %}
+                                بدون دسته‌بندی
+                            {% endif %}
+                        </span>
+                        <span>
+                            تاریخ انتشار:
+                            {% if article.published_at %}
+                                {{ article.published_at|date:"Y/m/d" }}
+                            {% else %}
+                                {{ article.created_at|date:"Y/m/d" }}
+                            {% endif %}
+                        </span>
+                        {% if article.reading_time %}<span>زمان مطالعه: {{ article.reading_time }} دقیقه</span>{% endif %}
+                    </div>
+                </header>
+                <!-- تصویر شاخص -->
+                {% if article.image %}
+                    <figure class="article-hero-image">
+                        <img src="{{ article.image.url }}" alt="{{ article.title }}">
+                        {% if article.summary %}<figcaption>{{ article.summary|truncatechars:140 }}</figcaption>{% endif %}
+                    </figure>
+                {% endif %}
+                <!-- متن مقاله -->
+                <div class="article-body">
+                    {# اگر content رو به صورت HTML ذخیره می‌کنی: #}
+                    {{ article.content|safe }}
+                    {{ article.content|linebreaks }}
+                </div>
+                <!-- برچسب‌ها -->
+                {% if article.tags.all %}
+                    <div class="article-tags">
+                        <span>برچسب‌ها:</span>
+                        <div class="article-tags-list">
+                            {% for tag in article.tags.all %}
+                                <a href="{% url 'articles_by_tag' tag.slug %}" class="tag">{{ tag.title }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            </article>
+            <!-- ستون کناری مقاله -->
+            <aside class="article-sidebar">
+                <div class="side-card">
+                    <h3 class="side-subtitle">نویسنده</h3>
+                    <p class="side-text">تیم محتوای دنیا خودرو</p>
+                    <p class="side-text">محتوای این مقاله بر اساس تجربه‌های واقعی در بازار خرید و فروش خودرو در اصفهان تهیه شده است.</p>
+                </div>
+                {% if similar_articles %}
+                    <div class="side-card">
+                        <h3 class="side-subtitle">مقالات مرتبط</h3>
+                        <ul class="side-list">
+                            {% for a in similar_articles|slice:":3" %}
+                                <li>
+                                    <a href="{% url 'article_detail' a.slug %}" class="article-side-link">{{ a.title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+                <div class="side-card">
+                    <h3 class="side-subtitle">تماس با دنیا خودرو</h3>
+                    <p class="side-text">اگر برای خرید ماشین کارکرده نیاز به مشاوره دارید، می‌توانید با ما در تماس باشید.</p>
+                    <a href="{% url 'contact' %}" class="btn btn-primary btn-full">دریافت مشاوره</a>
+                </div>
+            </aside>
+        </div>
+    </section>
+    <!-- مقالات مشابه پایین صفحه -->
+    {% if similar_articles %}
+        <section class="section section-alt">
+            <div class="container">
+                <div class="car-section-header">
+                    <h2 class="car-section-title">مقالات مشابه</h2>
+                    <a href="{% url 'articles_list' %}" class="car-section-link">مشاهده همه مقالات</a>
+                </div>
+                <div class="grid-articles">
+                    {% for a in similar_articles %}
+                        <article class="article-card">
+                            <h3>{{ a.title }}</h3>
+                            <p>
+                                {% if a.summary %}
+                                    {{ a.summary|truncatechars:140 }}
+                                {% else %}
+                                    {{ a.content|striptags|truncatechars:140 }}
+                                {% endif %}
+                            </p>
+                            <a href="{% url 'article_detail' a.slug %}" class="article-link">ادامه مطلب</a>
+                        </article>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}

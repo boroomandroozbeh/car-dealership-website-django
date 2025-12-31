@@ -1,0 +1,161 @@
+/* لِی‌اوت کلی تماس */
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
+    gap: 2.8rem;
+    align-items: flex-start;
+}
+
+/* معرفی و اطلاعات سمت راست */
+
+.contact-intro {
+    max-width: 56rem;
+}
+
+.contact-title {
+    font-size: var(--fs-h2);
+    line-height: var(--lh-heading);
+    margin-bottom: 1rem;
+}
+
+.contact-subtitle {
+    font-size: var(--fs-body-sm);
+    color: var(--muted);
+    margin-bottom: 1.8rem;
+    line-height: 1.9;
+}
+
+.contact-info-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.contact-info-card {
+    border-radius: 1.6rem;
+    padding: 1.4rem 1.6rem;
+    border: 1px solid rgba(148, 163, 184, 0.28);
+    background: rgba(15, 23, 42, 0.9);
+    font-size: var(--fs-body-sm);
+    color: var(--muted);
+}
+
+.contact-info-card h2 {
+    font-size: var(--fs-h5);
+    margin-bottom: .6rem;
+}
+
+.contact-info-card p {
+    margin-bottom: .4rem;
+}
+
+/* فرم تماس */
+
+.contact-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+}
+
+.contact-form-card {
+    padding: 1.6rem 1.8rem;
+}
+
+.contact-form {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    font-size: var(--fs-body-xs);
+    color: var(--muted);
+}
+
+.form-group label {
+    font-size: var(--fs-body-xs);
+}
+
+.contact-textarea {
+    resize: vertical;
+    min-height: 10rem;
+}
+
+/* چک‌باکس و دکمه */
+
+.form-footer {
+    margin-top: .8rem;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    font-size: var(--fs-body-xs);
+    color: var(--muted);
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 1.4rem;
+    height: 1.4rem;
+}
+
+/* بخش نقشه */
+
+.contact-map-placeholder {
+    margin-top: .8rem;
+}
+
+.contact-map-box {
+    border-radius: 1.6rem;
+    padding: 1.4rem 1.6rem;
+    border: 1px dashed rgba(148, 163, 184, 0.5);
+    background: rgba(15, 23, 42, 0.85);
+}
+
+.contact-map-title {
+    font-size: var(--fs-h5);
+    margin-bottom: .4rem;
+}
+
+.contact-map-text {
+    font-size: var(--fs-body-sm);
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+/* ریسپانسیو */
+
+@media (max-width: 90rem) {
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form-card {
+        order: -1;
+    }
+}
+
+@media (max-width: 77rem) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-title {
+        font-size: var(--fs-h3);
+    }
+}

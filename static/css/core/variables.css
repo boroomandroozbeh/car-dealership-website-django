@@ -1,0 +1,53 @@
+:root {
+    --bg: #020617;
+    --bg-soft: #0b1220;
+    --card: #020617;
+    --border-subtle: #1e293b;
+    --accent: #e11d48;
+    --accent-soft: rgba(225, 29, 72, 0.1);
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --radius: 16px;
+    --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.9);
+    --container-width: 1100px;
+    --font: 'base-font', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+    /* سایز پایه ریشه (فقط برای یادآوری ذهنی خودت) */
+    --fs-root: 10px;           /* 1rem = 10px */
+
+    /* متن اصلی و حالت‌هایش */
+    --fs-body: 1.6rem;         /* 16px - متن معمولی */
+    --fs-body-sm: 1.4rem;      /* 14px - متن ریزتر، توضیحات فرعی */
+    --fs-body-xs: 1.2rem;      /* 12px - متن خیلی ریز، لیبل‌ها */
+
+    /* تیترها */
+    --fs-h1: 3.6rem;           /* 36px - تیتر اصلی صفحه (Hero) */
+    --fs-h2: 2.8rem;           /* 28px - تیتر سکشن‌ها */
+    --fs-h3: 2.2rem;           /* 22px - تیتر کارت‌ها / زیرسکشن‌ها */
+    --fs-h4: 1.8rem;           /* 18px - تیتر کوچک / ساب‌تیتر */
+    --fs-h5: 1.6rem;           /* 16px */
+    --fs-h6: 1.4rem;           /* 14px */
+
+    /* ناوبری، دکمه‌ها و تگ‌ها */
+    --fs-nav: 1.44rem;         /* ≈14.4px - آیتم‌های منو و لوگوی آیکن */
+    --fs-button: 1.44rem;      /* ≈14.4px - متن دکمه و اینپوت */
+    --fs-tag: 1.28rem;         /* ≈12.8px - برچسب‌ها / Badge / متای کارت‌ها */
+
+    /* متن‌های خیلی کوچک مثل فوتر / کپی‌رایت */
+    --fs-meta: 1.31rem;        /* ≈13.1px - نوشته‌های متا / فوتر */
+    --fs-caption: 1.2rem;      /* 12px - کپشن تصویر، توضیح خیلی ریز */
+
+    /* سایزهای خاص در طراحی فعلی */
+    --fs-section-title: 2.56rem;   /* 25.6px - h2 در section-header */
+    --fs-hero-title: 3.36rem;      /* 33.6px - تیتر اصلی hero */
+    --fs-logo-text: 1.52rem;       /* 15.2px - متن لوگو و متن hero */
+    --fs-card-title: 1.76rem;      /* 17.6px - تیتر کارت کناری hero */
+    --fs-card-body: 1.41rem;       /* 14.1px - متن کارت کناری hero */
+    --fs-card-main-title: 1.57rem; /* 15.7px - عنوان کارت ماشین */
+    --fs-card-price: 1.47rem;      /* 14.7px - قیمت و متن‌های برجسته */
+    --fs-article-body: 1.38rem;    /* 13.8px - متن و لینک کارت مقاله */
+
+    /* خط فاصله (line-height) پیشنهادی */
+    --lh-body: 1.6;
+    --lh-heading: 1.3;
+}

@@ -1,0 +1,96 @@
+.grid-cars {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 1.8rem;
+}
+
+.car-card {
+    border-radius: 20px;
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(30, 64, 175, 0.25);
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.9);
+    display: flex;
+    flex-direction: column;
+}
+
+.car-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.car-body {
+    padding: 1.2rem 1.4rem 1rem;
+}
+
+.car-title {
+    margin: 0 0 .4rem;
+    font-size: var(--fs-card-main-title);
+}
+
+.car-meta {
+    margin: 0 0 .8rem;
+    font-size: var(--fs-tag);
+    color: var(--muted);
+}
+
+.car-price {
+    margin: 0 0 .8rem;
+    font-weight: 600;
+    font-size: var(--fs-card-price);
+    color: #f97316;
+}
+
+.car-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: var(--fs-tag);
+}
+
+.car-city {
+    color: var(--muted);
+}
+
+/* Text block */
+
+.text-block p {
+    margin: 0 0 1rem;
+    line-height: 1.8;
+    font-size: var(--fs-card-price);
+    color: var(--muted);
+}
+
+/* Articles */
+
+.grid-articles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.6rem;
+    margin-top: 1.4rem;
+}
+
+.article-card {
+    border-radius: 18px;
+    padding: 1.4rem 1.6rem;
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), rgba(15, 23, 42, 0.9));
+}
+
+.article-card h3 {
+    margin: 0 0 .6rem;
+    font-size: var(--fs-h5);
+}
+
+.article-card p {
+    margin: 0 0 1rem;
+    font-size: var(--fs-article-body);
+    color: var(--muted);
+}
+
+.article-link {
+    font-size: var(--fs-article-body);
+    color: #38bdf8;
+    text-decoration: none;
+}

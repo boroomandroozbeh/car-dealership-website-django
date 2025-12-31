@@ -1,0 +1,114 @@
+/* هدر صفحه مقالات */
+
+.articles-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 2.2rem;
+}
+
+.articles-header-main {
+    max-width: 60rem;
+}
+
+.articles-title {
+    font-size: var(--fs-h2);
+    line-height: var(--lh-heading);
+    margin-bottom: .8rem;
+}
+
+.articles-subtitle {
+    font-size: var(--fs-body-sm);
+    color: var(--muted);
+    line-height: 1.9;
+}
+
+/* جستجوی بالای مقالات */
+
+.articles-search {
+    min-width: 26rem;
+}
+
+.articles-search .input {
+    width: 100%;
+}
+
+/* فیلتر دسته‌بندی‌ها */
+
+.articles-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
+    margin-bottom: 1.8rem;
+}
+
+.articles-tag {
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    background: rgba(15, 23, 42, 0.9);
+    color: var(--muted);
+    font-size: var(--fs-body-xs);
+    padding: .4rem 1.2rem;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.articles-tag:hover {
+    color: var(--text);
+    border-color: rgba(148, 163, 184, 0.6);
+}
+
+.articles-tag.is-active {
+    color: #f9fafb;
+    border-color: #e11d48;
+    background: radial-gradient(circle at top left, #e11d48, #f97316);
+}
+
+/* متا مقالات (زیر عنوان کارت) */
+
+.article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .8rem;
+    font-size: var(--fs-body-xs);
+    color: var(--muted);
+    margin-bottom: .6rem;
+}
+
+/* خود article-card و grid-articles از قبل در cards.css هستن،
+   فقط اگر خواستی می‌تونی کمی فاصله داخلی رو اینجا تنظیم کنی */
+
+/* .article-card { */
+    /* اگر خواستی چیزی اضافه کنی، اینجا انجام بده */
+/* } */
+
+.article-card h2 {
+    font-size: var(--fs-h5);
+}
+
+/* صفحه‌بندی مقالات (استفاده از کلاس عمومی pagination) */
+
+.articles-pagination {
+    margin-top: 2.4rem;
+}
+
+/* ریسپانسیو */
+
+@media (max-width: 900px) {
+    .articles-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .articles-search {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .articles-title {
+        font-size: var(--fs-h3);
+    }
+}
