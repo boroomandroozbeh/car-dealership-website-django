@@ -1,4 +1,4 @@
-#car-dealership-website-django
+## car-dealership-website-django
 
 
 A full-featured car dealership website built with Django, designed for Persian-speaking users with SEO-friendly structure, advanced filtering, tagging, and admin management.
@@ -82,7 +82,7 @@ python manage.py runserver
 
 ---
 
-## 7. Usage
+##  Usage
 
 ## 📌 Usage
 
