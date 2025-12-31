@@ -61,8 +61,9 @@ A full-featured car dealership website built with Django, designed for Persian-s
  ## 🚀 Installation
 
 1. Clone the repository:
-```bash
+bash```
 git clone https://github.com/boroomandroozbeh/car-dealership-website-django.git
+
 
 
 
@@ -81,7 +82,7 @@ python manage.py runserver
 
 ---
 
-### 7. Usage
+## 7. Usage
 ```md
 ## 📌 Usage
 
@@ -104,3 +105,5 @@ python manage.py runserver
 
 This project was built as a professional portfolio piece and can be customized for real-world car dealerships.
 
+
+ ## 🚀 Installation
