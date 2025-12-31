@@ -83,7 +83,7 @@ python manage.py runserver
 ---
 
 ## 7. Usage
-```md
+md```
 ## 📌 Usage
 
 - Access the admin panel at `/admin`
