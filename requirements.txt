@@ -8,6 +8,7 @@ django-stubs==5.2.7
 django-stubs-ext==5.2.7
 djlint==1.36.4
 EditorConfig==0.17.1
+gunicorn==23.0.0
 jsbeautifier==1.15.4
 json5==0.12.1
 mypy_extensions==1.1.0
@@ -24,3 +25,4 @@ tqdm==4.67.1
 types-PyYAML==6.0.12.20250915
 typing_extensions==4.15.0
 tzdata==2025.2
+whitenoise==6.11.0
